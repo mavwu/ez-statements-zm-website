@@ -1,71 +1,170 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #222;
-    background-color: #fff;
-}
-h1, h2, h3 {
-    color: #333;
+/* ===== Global Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-section {
-    padding: 30px 20px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f9f9f9;
 }
-header, footer {
-    padding: 20px;
+
+/* ===== Header ===== */
+header {
+    background-color: #ffffff;
     text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2d6a4f; /* soft green accent */
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px; /* space for the bar */
+}
+
+header h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60%;      /* length of the bar relative to heading */
+    height: 4px;     /* thickness of the bar */
+    background-color: #2d6a4f; /* bar color matches heading */
+    border-radius: 2px; /* soft edges */
+}
+
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #444;
 }
 
 .download-button {
-    background-color: #4CAF50; /* soft green */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
     display: inline-block;
+    padding: 14px 28px;
+    background-color: #2d6a4f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
 }
+
 .download-button:hover {
-    background-color: #45a049;
+    background-color: #1b4332;
+    transform: translateY(-2px);
 }
 
-#screenshots img {
-    max-width: 100%; /* makes image responsive */
-    height: auto;    /* keeps aspect ratio */
-    display: block;  /* removes inline spacing */
-    margin: 10px auto; /* adds spacing around each screenshot */
-    border-radius: 8px; /* optional, looks nicer */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional soft shadow */
+/* ===== Page Wrapper ===== */
+.page-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
 }
 
+/* ===== Sections ===== */
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #1b4332;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2d6a4f;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+section h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+section p, section li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* ===== Screenshots Gallery ===== */
 .screenshots-container {
-    display: flex;            /* arrange items horizontally */
-    overflow-x: auto;         /* allow horizontal scroll on small screens */
-    gap: 15px;                /* space between images */
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
     padding: 10px 0;
-    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.screenshots-container a {
+    flex: 0 0 auto;
 }
 
 .screenshots-container img {
-    max-height: 290px;        /* scale images to same height */
+    max-height: 200px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    cursor: pointer;          /* clickable */
-    flex-shrink: 0;           /* prevent images from shrinking */
-    transition: transform 0.2s;
-    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .screenshots-container img:hover {
-    transform: scale(1.05);   /* subtle zoom on desktop */
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* Optional: hide scroll bar on some browsers */
-.screenshots-container::-webkit-scrollbar {
-    height: 10px;
+/* ===== Disclaimer ===== */
+#disclaimer {
+    background-color: #e0f2f1; /* soft green background */
+    padding: 25px 20px;
+    border-left: 4px solid #2d6a4f;
+    border-radius: 8px;
 }
-.screenshots-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 3px;
+
+/* ===== Contact ===== */
+#contact a {
+    color: #2d6a4f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    section h2 {
+        font-size: 1.6rem;
+    }
+    .screenshots-container img {
+        max-height: 180px;
+    }
 }
